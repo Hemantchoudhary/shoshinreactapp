@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../index.css';
-import { Modal, Button, Form, Input ,notification ,Tooltip} from 'antd';
+import { Modal, Button, Form, Input ,notification } from 'antd';
 import moment from 'moment'; 
 
 
@@ -21,7 +21,7 @@ const Service = () => {
       }, []);
 
       function apiLoad(){
-        const apiUrl = 'http://localhost:3000/api/services';
+        const apiUrl = 'http://localhost:5000/api/services';
         axios.get(apiUrl)
           .then((response) => {
             setServiceData(response.data.data);
@@ -41,7 +41,7 @@ const Service = () => {
             service_name: service_name,
             ...values
         }
-        const apiUrl = 'http://localhost:3000/api/bookings';
+        const apiUrl = 'http://localhost:5000/api/bookings';
         axios.post(apiUrl ,PARAMS)
         .then((response) => {
             apiLoad();
